@@ -1,0 +1,469 @@
+:root {
+
+    --bg-color: #1a1f25;
+    --primary-color: #21262D;
+    --secondary-color: #2b323a;
+    --text-color: #A5A8BD;
+    --text-color-2: #394962;
+    --button-color: #39A6FF;
+    --button-color-2: #A371F7;
+    --element-color-1: #3957ff;
+    --element-color-2: #9971f7;
+    --element-color-3: #6b1bcc;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: var(--bg-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+span{
+    font-weight: 700;
+}
+
+button{
+    cursor: pointer;
+}
+
+#sorting-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 100vh;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#settingsArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 600px;
+}
+
+#settingsContainer{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 55%;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px #07090d;
+}
+
+
+#sortButton{
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: var(--button-color-2);
+    border: none;
+}
+
+#leftArrayAlgorithmChoose, #rightArrayAlgorithmChoose{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+}
+
+#leftArrayAlgorithmChoose{
+    align-items: flex-end;
+}
+
+#rightArrayAlgorithmChoose{
+    align-items: flex-start;
+}
+
+#leftArrayAlgorithmChoose button{
+    width: 110px;
+    padding-left: 10px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 20px 0 0 20px;
+    background-color: var(--button-color);
+    box-shadow: 0px 0px 25px #07090d;
+    border: none;
+    color: var(--bg-color);
+    transition: all 300ms ease-in-out;
+}
+
+#rightArrayAlgorithmChoose button{
+    width: 110px;
+    padding-right: 10px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0 20px 20px 0;
+    background-color: var(--button-color);
+    box-shadow: 0px 0px 25px #07090d;
+    border: none;
+    color: var(--bg-color);
+    transition: all 300ms ease-in-out;
+}
+
+#lengthChooseContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    color: var(--text-color);
+    width: 240px;
+}
+
+#lengthChooseContainer h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--secondary-color);
+    border-bottom: solid 3px var(--bg-color);
+    font-size: 20px;
+}
+
+.lengthChoose{
+    height: 40px;
+    width: 220px;
+    cursor: pointer;
+}
+
+.createArrayButton{
+    width: 150px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin-bottom: 15px;
+    border: none;
+}
+
+#timeMultiplierContainer{
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    color: var(--text-color);
+    width: 240px;
+    transition: all 300ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+#timeMultiplierContainer h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--secondary-color);
+    border-bottom: solid 3px var(--bg-color);
+    font-size: 20px;
+}
+
+#timeMultiplierContainer div {
+    display: flex;
+}
+
+#timeMultiplierContainer button{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 60px;
+    font-size: 18px;
+    color: var(--text-color);
+    transition: all 300ms ease-in-out;
+}
+
+#timeMultiplierContainer div button:nth-child(1){
+    border-radius: 0 0 0 20px;
+}
+
+#timeMultiplierContainer .selectedTime{
+    background-color:  var(--secondary-color);
+}
+
+#timeMultiplierContainer button:nth-last-child(1){
+    border-radius: 0 0 20px 0;
+}
+
+#leftArrayContainer{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 650px;
+}
+
+#leftArray{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 700px;
+    width: 600px;
+}
+
+#rightArrayContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 650px;
+}
+
+#rightArray{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 700px;
+    width: 600px;
+}
+
+.arrayElement{
+    background-color: var(--button-color);
+}
+
+#leftArrayAlgorithmChoose .selectedAlgorithm{
+    transition: all 300ms ease-in-out;
+    width: 150px;
+    /* height: 70px; */
+    padding: 0;
+}
+
+#rightArrayAlgorithmChoose .selectedAlgorithm{
+    transition: all 300ms ease-in-out;
+    width: 150px;
+    /* height: 70px; */
+    padding: 0;
+}
+
+#lengthInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    height: 30px;
+    width: 60px;
+    font-size: 18px;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.currentElement {
+    background-color: var(--element-color-1);
+}
+
+.secondaryElement{
+    background-color: var(--element-color-2);
+}
+
+.tertiaryElement{
+    background-color: var(--element-color-3);
+}
+
+#scrollArea{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+#scrollArrow{
+    width: 80px;
+    height: 80px;
+}
+
+#scrollArrow img{
+    height: 80px;
+    filter: invert(14%) sepia(32%) saturate(392%) hue-rotate(172deg) brightness(90%) contrast(85%);
+}
+
+
+#infoSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 150px 0;
+}
+
+#infoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px #07090d;
+}
+
+#infoAlgorithmChoose{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 60px;
+    width: 1000px;
+    border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
+    background-color: var(--button-color);
+}
+
+#infoAlgorithmChoose button{
+    text-align: center;
+    height: 100%;
+    width: 20%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    color: var(--bg-color);
+    transition: all 300ms ease-in-out;
+}
+
+/* #infoAlgorithmChoose button:nth-child(1){
+    border-radius: 15px 15px 0 0;
+}
+
+#infoAlgorithmChoose button:last-child{
+    border-radius: 0 15px 0 0;
+} */
+
+#infoAlgorithmChoose .selectedInfo{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 15px 15px 0 0;
+}
+
+.arrayContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    width: 400px;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.arrayContainer .selectedElement{
+    background-color: var(--bg-color);
+    border-radius: 15px;
+}
+
+.arrayContainer .selectedElementFull{
+    background-color: var(--bg-color);
+}
+
+.arrayContainer .selectedElementLeft{
+    background-color: var(--bg-color);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.arrayContainer .selectedElementRight{
+    background-color: var(--bg-color);
+    border-radius: 0px 15px 15px 0px;
+}
+
+.codeContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: var(--secondary-color);
+    padding: 20px 20px 0px 20px;
+    border-radius: 15px;
+}
+
+pre{
+    text-align: start;
+}
+
+.blue{
+    color: var(--button-color)
+}
+
+#infoContentBubble{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 850px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#infoContentSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 850px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#infoContentInsertion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 850px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#orderedUnorderedContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+}
+
+#orderedUnorderedContainer p{
+    width: 200px;
+}
+
+#orderedUnorderedContainer :last-child{
+    border-left: 2px solid var(--bg-color);
+}
+
