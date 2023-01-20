@@ -44,6 +44,23 @@ button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#themeSwitch{
+    position: absolute;
+    top: 0px;
+    align-self: center;
+    display: flex;
+    border-radius: 15px;
+    height: 30px;
+    width: 60px;
+    background-color: red;
+}
+
+#themeSwitch button{
+    border: none;
+    width: 60px;
+    height: 20px;
+}
+
 #settingsArea{
     display: flex;
     justify-content: center;
@@ -363,6 +380,7 @@ button{
     background-color: var(--primary-color);
     color: var(--text-color);
     border-radius: 15px 15px 0 0;
+    transition: all 300ms ease-in-out;
 }
 
 .arrayContainer{
@@ -376,21 +394,36 @@ button{
     font-size: 25px;
 }
 
-.arrayContainer .selectedElement{
+.arrayContainerMerge{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: var(--bg-color);
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.arrayContainerMerge .secondaryColorBackground{
+    background-color: var(--secondary-color);
+}
+
+.selectedElement{
     background-color: var(--bg-color);
     border-radius: 15px;
 }
 
-.arrayContainer .selectedElementFull{
+.selectedElementFull{
     background-color: var(--bg-color);
 }
 
-.arrayContainer .selectedElementLeft{
+.selectedElementLeft{
     background-color: var(--bg-color);
     border-radius: 15px 0px 0px 15px;
 }
 
-.arrayContainer .selectedElementRight{
+.selectedElementRight{
     background-color: var(--bg-color);
     border-radius: 0px 15px 15px 0px;
 }
@@ -423,10 +456,11 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
+    transition: all 300ms ease-in-out;
 }
 
 #infoContentSelection{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -435,10 +469,11 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
+    transition: all 300ms ease-in-out;
 }
 
 #infoContentInsertion{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -447,6 +482,33 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
+    transition: all 300ms ease-in-out;
+}
+
+#infoContentMerge{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 850px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    transition: all 300ms ease-in-out;
+}
+
+#infoContentQuick{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 850px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    transition: all 300ms ease-in-out;
 }
 
 #orderedUnorderedContainer{

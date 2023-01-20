@@ -12,6 +12,10 @@
 <body>
 
     <section id="sorting-section">
+        <div id="themeSwitch">
+            <button id="lightTheme">LIGHT</button>
+            <button id="darkTheme">DARK</button>
+        </div>
         <section id="leftArrayContainer">
             <div id="leftArray">
             </div>
@@ -336,14 +340,14 @@
   <a class="blue">const</a> n = l.<a class="blue">length</a>
 
   <a class="blue">for</a> (<a class="blue">let</a> i = 0; i < n; i++){
-    <a class="blue">let</a> trocou = false;
+    <a class="blue">let</a> switch = false;
     <a class="blue">for</a> (<a class="blue">let </a>j = 0; j < n-i-1; j++){
       <a class="blue">if</a> (l[j] > l[j+1]){
         [l[j], l[j+1]] = [l[j+1], l[j]];
-        trocou = true;
+        switch = true;
       }
     }
-    <a class="blue">if</a> (<a class="blue">!</a>trocou){
+    <a class="blue">if</a> (<a class="blue">!</a>switch){
       <a class="blue">return</a>
     }
   }
@@ -365,7 +369,7 @@
 
 
 
-            <!-- <div id="infoContentSelection">
+            <div id="infoContentSelection">
                 <br>
                 <p>
                     Para colocar os elementos de uma lista em ordem crescente, o método <span>Selection Sort</span> vai
@@ -496,13 +500,13 @@
                     <pre>
 <a class="blue">function</a> selectionSort(l){
   <a href=""><a class="blue">for</a> (<a class="blue">let</a> i = 0; i < l.<a class="blue">length</a>; i++){
-    <a class="blue">let</a> posMenor = i
+    <a class="blue">let</a> smallerPos = i
     <a class="blue">for</a> (<a class="blue">let</a> j = i + 1; j < l.<a class="blue">length</a>;j++):
-      <a class="blue">if</a> (l[posMenor] > l[j]){
-        posMenor = j
+      <a class="blue">if</a> (l[smallerPos] > l[j]){
+        smallerPos = j
         }
       }
-    [l[i], l[posMenor]] = [l[posMenor], l[i]]
+    [l[i], l[smallerPos]] = [l[smallerPos], l[i]]
   }
 }
                     </pre>
@@ -513,7 +517,7 @@
                     vezes.
                 </p>
                 <br>
-            </div> -->
+            </div>
 
 
 
@@ -525,7 +529,7 @@
 
 
 
-            <!-- <div id="infoContentInsertion">
+            <div id="infoContentInsertion">
                 <br>
                 <p>O método <span>Insertion Sort</span> é um método simples de ordenação, que simula a forma como ordenamos as cartas de um baralho:</p>
                 <br>
@@ -625,7 +629,8 @@
 }
                     </pre>
                 </div>
-            </div> -->
+                <br>
+            </div>
 
 
 
@@ -638,16 +643,141 @@
 
 
             <div id="infoContentMerge">
-                
+                <br>
+                <p>O método de ordenação <span>Merge Sort</span> é um algoritmo recursivo mais eficiente que o Bubble, Selection e Insertion Sort. A complexidade dele é <i>O(n × lg n)</i>, enquanto os outros três são <i>O(n<sup>2</sup>)</i>. Quando a complexidade de um algoritomo é <i>O(f(n))</i>, significa que o tempo é sempre proporcional a <i>f(n)</i> (no melhor caso, no pior caso e na média).</p>
+                <p>O algoritmo vai dividindo a sequência ao meio, até que haja apenas 1 elemento. Depois, vai mesclando as subsequências de forma que se mantenham ordenadas.</p>
+                <br>
+                <img src="assets/img/merge-gif.gif" alt="Merge Sort GIF">
+                <br>
+                <p>Resumindo, os passos acima, a ideia do algoritmo é a seguinte:</p>
+                <br>
+                <ol>
+                    <li>Se houver no máximo um elemento na sequência, ela está ordenada.</li>
+                    <li>Se não, encontre o meio da sequência e divida-a em duas metades.</li>
+                    <li>Recursivamente, ordene a metade da esquerda usando o próprio Merge Sort.</li>
+                    <li>Recursivamente, ordene a metade da direita usando o próprio Merge Sort.</li>
+                    <li>Junte as duas metades, de forma que o resultado se mantenha ordenado.</li>
+                </ol>
+                <br>
+                <p>O algoritmo em JavaScript é:</p>
+                <br>
+                <div class="codeContainer">
+                    <pre>
+<a class="blue">function</a> mergeSort(arr){
+  <a class="blue">if </a>(arr.<a class="blue">length</a> > 1){
+    <a class="blue">const</a> mid = arr.<a class="blue">length</a> // 2;
+    <a class="blue">const</a> leftArray = arr.<a class="blue">slice</a>(0, mid);
+    <a class="blue">const</a> rightArray = arr.<a class="blue">slice</a>(mid + 1);
 
-                
+    <a class="blue">mergeSort</a>(leftArray);
+    <a class="blue">mergeSort</a>(righttArray);
+    
+    <a class="blue">merge</a>(arr, leftArray, rightArray);
+  }
+}
+                    </pre>
+                </div>
+                <br>
+                <p>Para que ele funcione, é necessário criar uma função auxiliar que recebe duas listas ordenadas, e salva seus elementos em uma sequência ordenada:</p>
+                <br>
+                <div class="codeContainer">
+                    <pre>
+<a class="blue">function</a> merge(arr, leftArray, rightArray){
+  <a class="blue">let</a> i = 0;
+  <a class="blue">let</a> j = 0;
+  <a class="blue">let</a> k = 0;
+
+  <a class="blue">while</a> (i < leftArray.<a class="blue">length &&</a> j < rightArray.<a class="blue">length</a>){
+    <a class="blue">if </a>(leftArray[i] < rightArray[j]){
+        arr[k] = leftArray[i];
+        i++;
+    } <a class="blue">else</a>{
+        arr[k] = rightArray[j];
+        j++;
+    }
+    k++;
+  }
+
+  <a class="blue">while</a> (i < leftArray.<a class="blue">length</a>){
+    arr[k] = leftArray[i];
+    i++;
+    k++;
+  }
+
+  <a class="blue">while</a> (j < rightArray.<a class="blue">length</a>){
+    arr[k] = rightArray[j];
+    j++;
+    k++;
+  } 
+}
+                    </pre>
+                </div>
+                <br>
             </div>
 
 
+
+            <!--#  ===========================================================================================-->
+            <!--#  ===========================================================================================-->
+            <!--#  ===========================================================================================-->
+            <!--#  ===========================================================================================-->
+            <!--#  ===========================================================================================-->
+
+
+
+            <div id="infoContentQuick">
+                <br>
+                <p>Assim como o Merge Sort, o <span>Quick Sort</span> também divide o problema em problemas menores. Como vantagem, ele não necessita de armazenamento exxtra para criar sublistas. Como desvantagem, sua eficiência pode ser prejudicada se a escolha do pivô for ruim.</p>
+                <p>O algoritmo seleciona um elemento qualquer como o pivô. Em seguida, divide a sequência entre os menores que o pivô à sua esquerda e os maiores à direita. Em seguida, ordena cada sublista recursivamente.</p>
+                <br>
+                <p>No exemplo a seguir, fazemos toda a ordenação de uma sequência utilizando o Quick Sort:</p>
+                <br>
+                <img src="assets/img/quick-gif.gif" alt="Quick Sort GIF">
+                <br>
+                <p>Em JavaScript:</p>
+                <br>
+                <div class="codeContainer">
+                    <pre>
+<a class="blue">function</a> quickSort(arr, inf, sup){
+  <a class="blue">if</a> (inf < sup){
+    <a class="blue">const</a> pos = <a class="blue">particao</a>(arr, inf, sup);
+    <a class="blue">quickSort</a>(arr, inf, pos - 1);
+    <a class="blue">quickSort</a>(arr, pos + 1, sup);
+  }
+}
+                    </pre>
+                </div>
+                <br>
+                <p>Para que o algoritmo funcione, a função auxiliar "partition" realiza a separacao entre menores e maiores, e retorna o índice do pivô após a partição:</p>
+                <br>
+                <div class="codeContainer">
+                    <pre>
+<a class="blue">function</a> partition(arr, inf, sup){
+  <a class="blue">const</a> pivot = arr[inf];
+  <a class="blue">let</a> i = inf + 1;
+  <a class="blue">let</a> j = sup;
+
+  <a class="blue">while</a> (i <== j){
+    <a class="blue">while</a> (i <== j <a class="blue">&&</a> arr[i] <== pivot){
+        i++;
+    }
+    <a class="blue">while</a> (j >== i <a class="blue">&&</a> arr[j] > pivot){
+        j--;
+    }
+    <a class="blue">if</a> (i < j){
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  [arr[inf], arr[j]] = [arr[j], arr[inf]];
+  <a class="blue">return</a> j;
+}
+                    </pre>
+                </div>
+                <br>
+            </div>
+
         </div>
     </section>
-
-
 
     <script src="assets/js/main.js"></script>
 </body>

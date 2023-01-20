@@ -5,10 +5,11 @@ function globalFunction() {
 
 
     //# =============================================================================================== #\\
-    //# ======================================| QUERY SELECTORS |====================================== #\\
+    //# =============================| QUERY SELECTORS AND INITIAL VALUES |============================ #\\
     //# =============================================================================================== #\\
 
-
+    const sortInputs = document.querySelectorAll('#sorting-section input');
+    const sortButtons = document.querySelectorAll('#sorting-section button');
 
     const leftArray = document.querySelector('#leftArray');
     const rightArray = document.querySelector('#rightArray');
@@ -18,6 +19,7 @@ function globalFunction() {
     const lengthChoose = document.querySelector('.lengthChoose');
     const lengthInput = document.querySelector('#lengthInput');
     const createArrayButton = document.querySelector('.createArrayButton');
+    let lengthInputPastValue = lengthChoose.value;
 
     const timeMultiplierContainer = document.querySelector('#timeMultiplierContainer div');
     let delayMs = 0;
@@ -32,6 +34,12 @@ function globalFunction() {
     let leftArraySelectedAlgorithm = null;
     let rightArraySelectedAlgorithm = null;
 
+    const infoAlgorithmChoose = document.querySelector('#infoAlgorithmChoose');
+    const infoContentBubble = document.querySelector('#infoContentBubble');
+    const infoContentSelection = document.querySelector('#infoContentSelection');
+    const infoContentInsertion = document.querySelector('#infoContentInsertion');
+    const infoContentMerge = document.querySelector('#infoContentMerge');
+    const infoContentQuick = document.querySelector('#infoContentQuick');
 
 
     //# =============================================================================================== #\\
@@ -168,7 +176,6 @@ function globalFunction() {
                 element.classList.add(color.color);
             }
 
-
             const borderRadius = getArrayElementsBorderRadius(arrayLength);
 
             if (arraySide.getAttribute('id') === 'leftArray') {
@@ -179,12 +186,15 @@ function globalFunction() {
 
             arraySide.appendChild(element);
         }
-    };
+    }
+
 
 
     //# =============================================================================================== #\\
     //# =====================================| SORTING ALGORITHMS |==================================== #\\
     //# =============================================================================================== #\\
+
+
 
     async function bubbleSort(array, arraySide, delayMs) {
         const arrayLength = array.length;
@@ -240,7 +250,7 @@ function globalFunction() {
         displayArray(array, arraySide)
     }
 
-    async function insertionSort(array, arraySide, delayMs) {  //#Aprovado pelo URUGU DO PIX
+    async function insertionSort(array, arraySide, delayMs) {
         const arrayLength = array.length;
 
         for (let i = 1; i < arrayLength; i++) {
@@ -269,7 +279,7 @@ function globalFunction() {
         displayArray(array, arraySide)
     }
 
-    async function mergeSort(array, arraySide, delayMs, start = 0, end = array.length - 1) { //#Aprovado pelo URUGU DO PIX
+    async function mergeSort(array, arraySide, delayMs, start = 0, end = array.length - 1) {
         if (start >= end) {
             return;
         }
@@ -341,7 +351,7 @@ function globalFunction() {
             return;
         }
 
-    
+
         // Returns pivotIndex
         const index = await partition(arr, start, end, arraySide, delayMs);
 
@@ -388,48 +398,68 @@ function globalFunction() {
     }
 
 
-
     //# =============================================================================================== #\\
     //# ======================================| EVENT LISTENERS |====================================== #\\
     //# =============================================================================================== #\\
 
 
 
-    lengthChoose.addEventListener('change', function () {
-        lengthInput.setAttribute('value', `${lengthChoose.value}`);
-        leftArrayContent = createNewArray();
-        rightArrayContent = [...leftArrayContent];
-    })
-
     lengthChoose.addEventListener('input', function () {
-        lengthInput.setAttribute('value', `${lengthChoose.value}`);
+        lengthInput.value = `${lengthChoose.value}`;
         leftArrayContent = createNewArray();
         rightArrayContent = [...leftArrayContent];
     })
 
-    // lengthInput.addEventListener('input', function(){
-    //     if(Number(lengthInput.value) > 200){
-    //         lengthInput.setAttribute('value', '200');
-    //     } else{
-    //         lengthChoose.setAttribute('value', `${lengthInput.value}`);
-    //     }
-    //     leftArrayContent = createNewArray();
-    //     rightArrayContent = leftArrayContent;   
-    // })
+    lengthInput.addEventListener('focusout', function () {
+        if (lengthInput.value === '') {
+            console.log('empty')
+            lengthChoose.value = Number(lengthInputPastValue);
+            lengthInput.value = `${lengthInputPastValue}`;
+        } else if (Number(lengthInput.value) > 200) {
+            console.log('too big')
+            lengthChoose.value = 200;
+            lengthInput.value = '200';
+        } else if (Number(lengthInput.value) < 2) {
+            console.log('too small')
+            lengthChoose.value = 2;
+            lengthInput.value = '2';
+        } else {
+            console.log('normal focusout')
+            lengthChoose.value = Number(lengthInput.value);
+            leftArrayContent = createNewArray();
+            rightArrayContent = leftArrayContent;
+        }
+        leftArrayContent = createNewArray();
+        rightArrayContent = leftArrayContent;
+        lengthInput.blur();
+    })
 
     lengthInput.addEventListener('focus', function () {
+        lengthInputPastValue = lengthInput.value;
         lengthInput.setAttribute('value', '');
     })
 
     lengthInput.addEventListener('keypress', function (e) {
         if (e.keyCode == '13') {
-            if (Number(lengthInput.value) > 200) {
-                lengthInput.setAttribute('value', '200');
+            if (lengthInput.value === '') {
+                console.log('empty')
+                lengthChoose.value = Number(lengthInputPastValue);
+                lengthInput.value = `${lengthInputPastValue}`;
+            } else if (Number(lengthInput.value) > 200) {
+                console.log('too big')
+                lengthChoose.value = 200;
+                lengthInput.value = '200';
+            } else if (Number(lengthInput.value) < 2) {
+                console.log('too small')
+                lengthChoose.value = 2;
+                lengthInput.value = '2';
             } else {
+                console.log('normal')
                 lengthChoose.setAttribute('value', `${lengthInput.value}`);
             }
             leftArrayContent = createNewArray();
             rightArrayContent = leftArrayContent;
+            lengthInput.blur();
         }
     })
 
@@ -502,12 +532,31 @@ function globalFunction() {
         clickedElement.classList.add('selectedAlgorithm')
     });
 
-    sortButton.addEventListener('click', function () {
+    function isRunning(status) {
+        if (status) {
+            for (child of sortInputs) {
+                child.setAttribute('disabled', '');
+            }
+            for (child of sortButtons) {
+                child.setAttribute('disabled', '');
+            }
+        } else {
+            for (child of sortInputs) {
+                child.removeAttribute('disabled', '');
+            }
+            for (child of sortButtons) {
+                child.removeAttribute('disabled', '');
+            }
+        }
+    }
+
+    sortButton.addEventListener('click', async function () {
 
         if (leftArraySelectedAlgorithm === null || rightArraySelectedAlgorithm === null) {
             alert('ERRO. ALGORITMOS NÂO SELECIONADOS.')
         }
         else {
+            isRunning(true);
             switch (leftArraySelectedAlgorithm) {
                 case 'bubble':
                     bubbleSort(leftArrayContent, leftArray, delayMs);
@@ -530,26 +579,82 @@ function globalFunction() {
 
             switch (rightArraySelectedAlgorithm) {
                 case 'bubble':
-                    bubbleSort(rightArrayContent, rightArray, delayMs);
+                    await bubbleSort(rightArrayContent, rightArray, delayMs);
                     break;
                 case 'selection':
-                    selectionSort(rightArrayContent, rightArray, delayMs);
+                    await selectionSort(rightArrayContent, rightArray, delayMs);
                     break;
                 case 'insertion':
-                    insertionSort(rightArrayContent, rightArray, delayMs);
+                    await insertionSort(rightArrayContent, rightArray, delayMs);
                     break;
                 case 'merge':
-                    mergeSort(rightArrayContent, rightArray, delayMs);
+                    await mergeSort(rightArrayContent, rightArray, delayMs);
                     break;
                 case 'quick':
-                    quickSort(rightArrayContent, rightArray, delayMs);
+                    await quickSort(rightArrayContent, rightArray, delayMs);
                     break;
                 default:
                     break;
             }
+            isRunning(false);
         }
     })
-    
+
+    function changeSelectedInfoButton(element) {
+        for (i of infoAlgorithmChoose.children) {
+            if (i.classList.contains('selectedInfo')) {
+                i.classList.remove('selectedInfo');
+            } else if (i === element) {
+                i.classList.add('selectedInfo');
+            }
+
+        }
+    }
+
+    infoAlgorithmChoose.addEventListener('click', function (e) {
+
+        const clickedElement = e.target;
+        if (clickedElement.getAttribute('id') === 'infoBubble') {
+            changeSelectedInfoButton(clickedElement);
+            infoContentBubble.style = "display: flex;";
+            infoContentSelection.style = "display: none;";
+            infoContentInsertion.style = "display: none;";
+            infoContentMerge.style = "display: none;";
+            infoContentQuick.style = "display: none;";
+        }
+        else if (clickedElement.getAttribute('id') === 'infoSelection') {
+            changeSelectedInfoButton(clickedElement);
+            infoContentBubble.style = "display: none;";
+            infoContentSelection.style = "display: flex;";
+            infoContentInsertion.style = "display: none;";
+            infoContentMerge.style = 'display: none;';
+            infoContentQuick.style = 'display: none;';
+        }
+        else if (clickedElement.getAttribute('id') === 'infoInsertion') {
+            changeSelectedInfoButton(clickedElement);
+            infoContentBubble.style = "display:none;";
+            infoContentSelection.style = "display: none;";
+            infoContentInsertion.style = "display: flex;";
+            infoContentMerge.style = "display: none;";
+            infoContentQuick.style = "display: none;";
+        }
+        else if (clickedElement.getAttribute('id') === 'infoMerge') {
+            changeSelectedInfoButton(clickedElement);
+            infoContentBubble.style = "display: none;";
+            infoContentSelection.style = "display: none;";
+            infoContentInsertion.style = "display: none;";
+            infoContentMerge.style = "display: flex;";
+            infoContentQuick.style = "display: none;";
+        }
+        else if (clickedElement.getAttribute('id') === 'infoQuick') {
+            changeSelectedInfoButton(clickedElement);
+            infoContentBubble.style = "display: none;";
+            infoContentSelection.style = "display: none;";
+            infoContentInsertion.style = "display: none;";
+            infoContentMerge.style = "display: none;";
+            infoContentQuick.style = "display: flex;";
+        }
+    })
 
 }
 globalFunction();
