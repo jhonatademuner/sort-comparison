@@ -8,38 +8,50 @@ function globalFunction() {
     //# =============================| QUERY SELECTORS AND INITIAL VALUES |============================ #\\
     //# =============================================================================================== #\\
 
-    const sortInputs = document.querySelectorAll('#sorting-section input');
-    const sortButtons = document.querySelectorAll('#sorting-section button');
+
+
+    const root = document.querySelector(':root');
+    const arrayContainer = document.querySelectorAll('.arrayContainer');
+    const codeContainer = document.querySelectorAll('.codeContainer');
+    const scrollArrow = document.querySelector('#scrollArrow img');
 
     const leftArray = document.querySelector('#leftArray');
     const rightArray = document.querySelector('#rightArray');
     let leftArrayContent = [];
     let rightArrayContent = [];
+    
+    const themeSwitch = document.querySelector('#themeSwitch');
+    const themeButton = document.querySelector('#themeButton');
+    const themeButtonIcon = document.querySelector('#themeButton img');
 
     const lengthChoose = document.querySelector('.lengthChoose');
     const lengthInput = document.querySelector('#lengthInput');
     const createArrayButton = document.querySelector('.createArrayButton');
     let lengthInputPastValue = lengthChoose.value;
-
+    
     const timeMultiplierContainer = document.querySelector('#timeMultiplierContainer div');
     let delayMs = 0;
-
+    
     const leftArrayAlgorithmChoose = document.querySelector('#leftArrayAlgorithmChoose');
     const rightArrayAlgorithmChoose = document.querySelector('#rightArrayAlgorithmChoose');
-
+    
     const sortButton = document.querySelector('#sortButton');
-
+    
     const sortMethods = ['bubble', 'selection', 'insertion', 'merge', 'quick']
-
+    
     let leftArraySelectedAlgorithm = null;
     let rightArraySelectedAlgorithm = null;
-
+    
     const infoAlgorithmChoose = document.querySelector('#infoAlgorithmChoose');
     const infoContentBubble = document.querySelector('#infoContentBubble');
     const infoContentSelection = document.querySelector('#infoContentSelection');
     const infoContentInsertion = document.querySelector('#infoContentInsertion');
     const infoContentMerge = document.querySelector('#infoContentMerge');
     const infoContentQuick = document.querySelector('#infoContentQuick');
+    
+    const sortInputs = document.querySelectorAll('#sorting-section input');
+    const sortButtons = document.querySelectorAll('#sorting-section button');
+
 
 
     //# =============================================================================================== #\\
@@ -403,6 +415,50 @@ function globalFunction() {
     //# =============================================================================================== #\\
 
 
+
+    themeSwitch.addEventListener('click', function () {
+        if (themeButton.classList.contains('darkTheme')) {
+            themeButton.classList.remove('darkTheme');
+            themeButton.classList.add('lightTheme');
+            root.style.setProperty('--bg-color', '#D8E0E9');
+            root.style.setProperty('--primary-color', '#e6ebf0');
+            root.style.setProperty('--secondary-color', '#ebeff2');
+            root.style.setProperty('--text-color', '#242424');
+            root.style.setProperty('--text-color-2', '#000');
+            root.style.setProperty('--button-color', '#3d8cdb');
+            root.style.setProperty('--element-color-1', '#1A31B1');
+            root.style.setProperty('--element-color-2', '#6644B7');
+            root.style.setProperty('--element-color-3', '#422189');
+            root.style.setProperty('--shadow-color', '#adadad');
+            arrayContainer.forEach(i => i.style.border = '2px solid var(--bg-color)');
+            codeContainer.forEach(i => i.style.border = '2px solid var(--bg-color)');
+            scrollArrow.style.filter = "invert(90%) sepia(6%) saturate(181%) hue-rotate(187deg) brightness(108%) contrast(92%)";
+            themeButton.style = "transform: translateX(30px);";
+            themeButton.style = "-webkit-transform: translateX(30px);";
+            themeButtonIcon.setAttribute('src', 'assets/img/outlined-sun-icon.svg');
+            sortButton.style = "color: var(--bg-color);";
+        } else if (themeButton.classList.contains('lightTheme')) {
+            themeButton.classList.remove('lightTheme');
+            themeButton.classList.add('darkTheme');
+            root.style.setProperty('--bg-color', '#1a1f25');
+            root.style.setProperty('--primary-color', '#21262D');
+            root.style.setProperty('--secondary-color', '#2b323a');
+            root.style.setProperty('--text-color', '#A5A8BD');
+            root.style.setProperty('--text-color-2', '#394962');
+            root.style.setProperty('--button-color', '#39A6FF');
+            root.style.setProperty('--element-color-1', '#3957ff');
+            root.style.setProperty('--element-color-2', '#9971f7');
+            root.style.setProperty('--element-color-3', '#6b1bcc');
+            root.style.setProperty('--shadow-color', '#07090d');
+            arrayContainer.forEach(i => i.style.border = 'none');
+            codeContainer.forEach(i => i.style.border = 'none');
+            scrollArrow.style.filter = "invert(14%) sepia(32%) saturate(392%) hue-rotate(172deg) brightness(90%) contrast(85%)";
+            themeButton.style = "transform: translateX(0px);";
+            themeButton.style = "-webkit-transform: translateX(0px);";
+            themeButtonIcon.setAttribute('src', 'assets/img/outlined-moon-icon.svg');
+            sortButton.style = "color: var(--bg-color);";
+        }
+    })
 
     lengthChoose.addEventListener('input', function () {
         lengthInput.value = `${lengthChoose.value}`;

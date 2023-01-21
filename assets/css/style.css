@@ -6,11 +6,10 @@
     --text-color: #A5A8BD;
     --text-color-2: #394962;
     --button-color: #39A6FF;
-    --button-color-2: #A371F7;
     --element-color-1: #3957ff;
     --element-color-2: #9971f7;
     --element-color-3: #6b1bcc;
-    
+    --shadow-color: #07090d;
 }
 
 * {
@@ -44,21 +43,38 @@ button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#themeSwitch{
-    position: absolute;
-    top: 0px;
-    align-self: center;
+#themeArea{
+    width: 100%;
     display: flex;
-    border-radius: 15px;
-    height: 30px;
-    width: 60px;
-    background-color: red;
+    justify-content: center;
+    align-items: center;
 }
 
-#themeSwitch button{
-    border: none;
+#themeSwitch{
+    display: flex;
+    align-items: center;
+    background-color: var(--button-color);
+    height: 30px;
     width: 60px;
-    height: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#themeButton{
+    border: none;
+    background-color: var(--bg-color);
+    margin: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: linear 0.2s;
+}
+
+#themeButton img{
+    width: 100%;
+    height: 100%;
+    filter: invert(10%) sepia(4%) saturate(4228%) hue-rotate(172deg) brightness(96%) contrast(76%);
+    transition: linear 0.3s;
 }
 
 #settingsArea{
@@ -80,7 +96,8 @@ button{
     height: 55%;
     width: 300px;
     border-radius: 15px;
-    box-shadow: 0px 0px 25px #07090d;
+    box-shadow: 0px 0px 25px var(--shadow-color);
+    transition: linear 0.2s;
 }
 
 
@@ -90,8 +107,10 @@ button{
     font-size: 20px;
     font-weight: 600;
     border-radius: 20px;
-    background-color: var(--button-color-2);
+    background-color: var(--button-color);
     border: none;
+    color: var(--bg-color);
+    transition: linear 0.2s;
 }
 
 #leftArrayAlgorithmChoose, #rightArrayAlgorithmChoose{
@@ -99,6 +118,7 @@ button{
     flex-direction: column;
     gap: 10px;
     width: 150px;
+    transition: linear 0.2s;
 }
 
 #leftArrayAlgorithmChoose{
@@ -117,10 +137,10 @@ button{
     font-weight: 600;
     border-radius: 20px 0 0 20px;
     background-color: var(--button-color);
-    box-shadow: 0px 0px 25px #07090d;
+    box-shadow: 0px 0px 25px var(--shadow-color);
     border: none;
     color: var(--bg-color);
-    transition: all 300ms ease-in-out;
+    transition: linear 0.2s;
 }
 
 #rightArrayAlgorithmChoose button{
@@ -131,10 +151,10 @@ button{
     font-weight: 600;
     border-radius: 0 20px 20px 0;
     background-color: var(--button-color);
-    box-shadow: 0px 0px 25px #07090d;
+    box-shadow: 0px 0px 25px var(--shadow-color);
     border: none;
     color: var(--bg-color);
-    transition: all 300ms ease-in-out;
+    transition: linear 0.2s;
 }
 
 #lengthChooseContainer{
@@ -146,6 +166,7 @@ button{
     border-radius: 20px;
     color: var(--text-color);
     width: 240px;
+    transition: linear 0.2s;
 }
 
 #lengthChooseContainer h2{
@@ -158,6 +179,7 @@ button{
     background-color: var(--secondary-color);
     border-bottom: solid 3px var(--bg-color);
     font-size: 20px;
+    transition: linear 0.2s;
 }
 
 .lengthChoose{
@@ -176,6 +198,7 @@ button{
     color: var(--text-color);
     margin-bottom: 15px;
     border: none;
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer{
@@ -183,9 +206,9 @@ button{
     border-radius: 20px;
     color: var(--text-color);
     width: 240px;
-    transition: all 300ms ease-in-out;
     display: flex;
     flex-direction: column;
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer h2{
@@ -197,10 +220,12 @@ button{
     background-color: var(--secondary-color);
     border-bottom: solid 3px var(--bg-color);
     font-size: 20px;
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer div {
     display: flex;
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer button{
@@ -212,7 +237,7 @@ button{
     width: 60px;
     font-size: 18px;
     color: var(--text-color);
-    transition: all 300ms ease-in-out;
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer div button:nth-child(1){
@@ -221,6 +246,7 @@ button{
 
 #timeMultiplierContainer .selectedTime{
     background-color:  var(--secondary-color);
+    transition: linear 0.2s;
 }
 
 #timeMultiplierContainer button:nth-last-child(1){
@@ -232,6 +258,7 @@ button{
     align-items: center;
     height: 100%;
     width: 650px;
+    transition: linear 0.2s;
 }
 
 #leftArray{
@@ -241,6 +268,7 @@ button{
     align-items: flex-start;
     height: 700px;
     width: 600px;
+    transition: linear 0.2s;
 }
 
 #rightArrayContainer{
@@ -249,6 +277,7 @@ button{
     align-items: center;
     height: 100%;
     width: 650px;
+    transition: linear 0.2s;
 }
 
 #rightArray{
@@ -258,23 +287,21 @@ button{
     align-items: flex-end;
     height: 700px;
     width: 600px;
+    transition: linear 0.2s;
 }
 
 .arrayElement{
     background-color: var(--button-color);
+    transition: linear 0.2s;
 }
 
 #leftArrayAlgorithmChoose .selectedAlgorithm{
-    transition: all 300ms ease-in-out;
     width: 150px;
-    /* height: 70px; */
     padding: 0;
 }
 
 #rightArrayAlgorithmChoose .selectedAlgorithm{
-    transition: all 300ms ease-in-out;
     width: 150px;
-    /* height: 70px; */
     padding: 0;
 }
 
@@ -291,6 +318,7 @@ button{
     background-color: var(--secondary-color);
     border-radius: 10px;
     margin-bottom: 15px;
+    transition: linear 0.2s;
 }
 
 .currentElement {
@@ -321,6 +349,7 @@ button{
 #scrollArrow img{
     height: 80px;
     filter: invert(14%) sepia(32%) saturate(392%) hue-rotate(172deg) brightness(90%) contrast(85%);
+    transition: linear 0.2s;
 }
 
 
@@ -342,7 +371,8 @@ button{
     background-color: var(--primary-color);
     width: 1000px;
     border-radius: 15px;
-    box-shadow: 0px 0px 25px #07090d;
+    box-shadow: 0px 0px 25px var(--shadow-color);
+    transition: linear 0.2s;
 }
 
 #infoAlgorithmChoose{
@@ -354,6 +384,7 @@ button{
     border-radius: 15px 15px 0px 0px;
     overflow: hidden;
     background-color: var(--button-color);
+    transition: linear 0.2s;
 }
 
 #infoAlgorithmChoose button{
@@ -365,22 +396,15 @@ button{
     background-color: transparent;
     border: none;
     color: var(--bg-color);
-    transition: all 300ms ease-in-out;
+    transition: linear 0.2s;
 }
 
-/* #infoAlgorithmChoose button:nth-child(1){
-    border-radius: 15px 15px 0 0;
-}
-
-#infoAlgorithmChoose button:last-child{
-    border-radius: 0 15px 0 0;
-} */
 
 #infoAlgorithmChoose .selectedInfo{
     background-color: var(--primary-color);
     color: var(--text-color);
     border-radius: 15px 15px 0 0;
-    transition: all 300ms ease-in-out;
+    transition: linear 0.2s;
 }
 
 .arrayContainer{
@@ -392,6 +416,7 @@ button{
     width: 400px;
     border-radius: 15px;
     font-size: 25px;
+    transition: linear 0.2s;
 }
 
 .arrayContainerMerge{
@@ -403,6 +428,7 @@ button{
     width: 500px;
     border-radius: 15px;
     font-size: 25px;
+    transition: linear 0.2s;
 }
 
 .arrayContainerMerge .secondaryColorBackground{
@@ -436,6 +462,7 @@ button{
     background-color: var(--secondary-color);
     padding: 20px 20px 0px 20px;
     border-radius: 15px;
+    transition: linear 0.2s;
 }
 
 pre{
@@ -456,7 +483,6 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    transition: all 300ms ease-in-out;
 }
 
 #infoContentSelection{
@@ -469,7 +495,6 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    transition: all 300ms ease-in-out;
 }
 
 #infoContentInsertion{
@@ -482,7 +507,6 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    transition: all 300ms ease-in-out;
 }
 
 #infoContentMerge{
@@ -495,7 +519,6 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    transition: all 300ms ease-in-out;
 }
 
 #infoContentQuick{
@@ -508,7 +531,6 @@ pre{
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    transition: all 300ms ease-in-out;
 }
 
 #orderedUnorderedContainer{
@@ -529,3 +551,57 @@ pre{
     border-left: 2px solid var(--bg-color);
 }
 
+footer{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 25px var(--shadow-color);
+    justify-content: center;
+}
+
+#footerContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1400px;
+}
+
+#emailContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 180px;
+    font-size: 18px;
+    color: var(--text-color);
+    border-left: 2px solid var(--bg-color);
+}
+
+#emailContainer p{
+    text-align: center;
+}
+
+#emailContainer input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: var(--secondary-color);
+}
+
+#emailContainer button{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    background-color: var(--button-color);
+    color: var(--bg-color);
+}

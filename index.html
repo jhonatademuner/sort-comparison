@@ -12,10 +12,6 @@
 <body>
 
     <section id="sorting-section">
-        <div id="themeSwitch">
-            <button id="lightTheme">LIGHT</button>
-            <button id="darkTheme">DARK</button>
-        </div>
         <section id="leftArrayContainer">
             <div id="leftArray">
             </div>
@@ -30,6 +26,9 @@
             </div>
 
             <div id="settingsContainer">
+                <div id="themeSwitch">
+                    <button id="themeButton" class="darkTheme"><img src="assets/img/outlined-moon-icon.svg"></button>
+                </div>
                 <section id="lengthChooseContainer">
                     <h2>Tamanho da lista</h2>
                     <input type="range" class="lengthChoose" min="2" max="200" value="100">
@@ -778,6 +777,23 @@
 
         </div>
     </section>
+
+    <footer>
+        <div id="footerContent">
+            <div id="contactsContainer">
+                <a href="">Website</a>
+                <a href="">Linkedin</a>
+                <a href="">GitHub</a>
+                <a href="">E-mail</a>
+            </div>
+            <div id="emailContainer">
+                <p>Me mande uma mensagem:</p>
+                <input type="text" placeholder="Seu e-mail">
+                <input type="text" placeholder="Mensagem">
+                <button>Enviar</button>
+            </div>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
