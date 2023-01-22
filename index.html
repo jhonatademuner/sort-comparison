@@ -92,223 +92,7 @@
                 <br>
                 <p>Existem diversos algoritmos para colocar os elementos de uma lista em ordem. Um dos mais simples e mais implementados é o <span>Bubble Sort</span>. Nele, trocamos todos os elementos adjacentes que estejam fora de ordem:</p>
                 <br>
-                <p>Primeira passada pelos elementos:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElementLeft">32</p>
-                    <p class="selectedElementRight">13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElementLeft">32</p>
-                    <p class="selectedElementRight">25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>25</p>
-                    <p class="selectedElementLeft">32</p>
-                    <p class="selectedElementRight">19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p class="selectedElementLeft">32</p>
-                    <p class="selectedElementRight">24</p>
-                    <p>18</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p class="selectedElementLeft">32</p>
-                    <p class="selectedElementRight">18</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                    <p class="selectedElement">32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Ao final do primeiro passo, temos certeza que o maior elemento da lista está no final da lista. Portanto, temos que ordenas os <i>n - 1</i> elementos que restaram no início da lista:</p>
-                <br>
-                <p>Segunda passada pelos elementos:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElementLeft">13</p>
-                    <p class="selectedElementRight">25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                    <p>32</p>
-                </div>
-                <p><b>Não trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElementLeft">25</p>
-                    <p class="selectedElementRight">19</p>
-                    <p>24</p>
-                    <p>18</p>
-                    <p>32</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p class="selectedElementLeft">25</p>
-                    <p class="selectedElementRight">24</p>
-                    <p>18</p>
-                    <p>32</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p class="selectedElementLeft">25</p>
-                    <p class="selectedElementRight">18</p>
-                    <p>32</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                    <p class="selectedElement">25</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Agora, o penúltimo elemento é, garantidamente, o segundo maior elemento da lista.</p>
-                <br>
-                <p>Terceira passada pelos elementos:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElementLeft">13</p>
-                    <p class="selectedElementRight">19</p>
-                    <p>24</p>
-                    <p>18</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Não trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElementLeft">19</p>
-                    <p class="selectedElementRight">24</p>
-                    <p>18</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Não trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p class="selectedElementLeft">24</p>
-                    <p class="selectedElementRight">18</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p>18</p>
-                    <p class="selectedElement">24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Quarta passada pelos elementos:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElementLeft">13</p>
-                    <p class="selectedElementRight">19</p>
-                    <p>18</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Não trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElementLeft">19</p>
-                    <p class="selectedElementRight">18</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p class="selectedElement">19</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Quinta passada pelos elementos:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElementLeft">13</p>
-                    <p class="selectedElementRight">18</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <p><b>Não trocar !</b></p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElement">18</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <br>
+                <img src="assets/img/bubble-gif.gif" alt="Bubble Sort GIF">
                 <p>________________________________________________________________</p>
                 <br>
                 <p>Podemos ver que agora que o algoritmo foi concluído, a lista de números está ordenada.</p>
@@ -381,115 +165,11 @@
                     <li>O restante da lista a ser ordenada.</li>
                 </ul>
                 <br>
+                <p>________________________________________________________________</p>
+                <br>
                 <p>Exemplo:</p>
                 <br>
-                <p>Encontrando o menor elemento:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p>32</p>
-                    <p class="selectedElement">13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p class="selectedElement">13</p>
-                    <p>32</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Encontrando o segundo menor elemento na sublista restante:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>32</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p class="selectedElement">18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p class="selectedElement">18</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Encontrando o segundo menor elemento na sublista restante:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>25</p>
-                    <p class="selectedElement">19</p>
-                    <p>24</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p class="selectedElement">19</p>
-                    <p>25</p>
-                    <p>24</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Encontrando o segundo menor elemento na sublista restante:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>19</p>
-                    <p>25</p>
-                    <p class="selectedElement">24</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>19</p>
-                    <p class="selectedElement">24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <p>________________________________________________________________</p>
-                <br>
-                <p>Encontrando o segundo menor elemento na sublista restante:</p>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p class="selectedElement">25</p>
-                    <p>32</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p class="selectedElement">25</p>
-                    <p>32</p>
-                </div>
+                <img src="assets/img/selection-gif.gif" alt="Selection Sort GIF">
                 <br>
                 <p>________________________________________________________________</p>
                 <br>
@@ -538,75 +218,13 @@
                     <li>Caso ainda haja elementos a serem inseridos, volte ao passo 2.</li>
                 </ol>
                 <br>
+                <p>________________________________________________________________</p>
+                <br>
                 <p>Exemplo:</p>
                 <br>
-                <div id="orderedUnorderedContainer">
-                    <p>Ordenados</p>
-                    <p>Não Ordenados</p>
-                </div>
+                <img src="assets/img/insertion-gif.gif" alt="Insertion Sort GIF">
                 <br>
-                <div class="arrayContainer">
-                    <p class="selectedElement">32</p>
-                    <p>13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>32</p>
-                    <p style="border-left: 3px solid var(--bg-color);">13</p>
-                    <p>25</p>
-                    <p>19</p>
-                    <p  class="selectedElement">24</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>24</p>
-                    <p>32</p>
-                    <p style="border-left: 3px solid var(--bg-color);">13</p>
-                    <p class="selectedElement">25</p>
-                    <p>19</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>24</p>
-                    <p>25</p>
-                    <p style="border-right: 3px solid var(--bg-color);">32</p>
-                    <p class="selectedElement">13</p>
-                    <p>19</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p style="border-right: 3px solid var(--bg-color);">32</p>
-                    <p class="selectedElement">19</p>
-                    <p>18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p  style="border-right: 3px solid var(--bg-color);">32</p>
-                    <p  class="selectedElement">18</p>
-                </div>
-                <br>
-                <div class="arrayContainer">
-                    <p>13</p>
-                    <p>18</p>
-                    <p>19</p>
-                    <p>24</p>
-                    <p>25</p>
-                    <p>32</p>
-                </div>
+                <p>________________________________________________________________</p>
                 <br>
                 <p>Em JavaScript:</p>
                 <br>
@@ -646,6 +264,10 @@
                 <p>O método de ordenação <span>Merge Sort</span> é um algoritmo recursivo mais eficiente que o Bubble, Selection e Insertion Sort. A complexidade dele é <i>O(n × lg n)</i>, enquanto os outros três são <i>O(n<sup>2</sup>)</i>. Quando a complexidade de um algoritomo é <i>O(f(n))</i>, significa que o tempo é sempre proporcional a <i>f(n)</i> (no melhor caso, no pior caso e na média).</p>
                 <p>O algoritmo vai dividindo a sequência ao meio, até que haja apenas 1 elemento. Depois, vai mesclando as subsequências de forma que se mantenham ordenadas.</p>
                 <br>
+                <p>________________________________________________________________</p>
+                <br>
+                <p>Exemplo:</p>
+                <br>
                 <img src="assets/img/merge-gif.gif" alt="Merge Sort GIF">
                 <br>
                 <p>Resumindo, os passos acima, a ideia do algoritmo é a seguinte:</p>
@@ -657,6 +279,8 @@
                     <li>Recursivamente, ordene a metade da direita usando o próprio Merge Sort.</li>
                     <li>Junte as duas metades, de forma que o resultado se mantenha ordenado.</li>
                 </ol>
+                <br>
+                <p>________________________________________________________________</p>
                 <br>
                 <p>O algoritmo em JavaScript é:</p>
                 <br>
@@ -780,18 +404,32 @@
 
     <footer>
         <div id="footerContent">
+            <div id="creditsContainer">
+                <h1>Jhonata Polito</h1>
+                <p>Este site foi desenvolvido com o intuito de provar minhas habilidades. Todo o código está dísponivel no meu GitHub.</p>
+                <p>© Jhonata Polito <a href="https://jhonataplt.github.io/sort-comparison/">jhonataplt.github.io/sort-comparison/</a></p>
+            </div>
+            <div class="verticalSeparator"></div>
             <div id="contactsContainer">
-                <a href="">Website</a>
-                <a href="">Linkedin</a>
-                <a href="">GitHub</a>
-                <a href="">E-mail</a>
+                <h1>Minhas redes</h1>
+                <div id="contactsGrid">
+                    <a href="" target="_blank"><img src="assets/img/globe-icon.svg">Website</a>
+                    <a href="https://www.linkedin.com/in/jhonatapolito/" target="_blank"><img src="assets/img/linkedin-icon.svg">Linkedin</a>
+                    <a href="https://github.com/jhonataplt" target="_blank"><img src="assets/img/github-icon.svg">Github</a>
+                    <a href="mailto:jhonata.demuner@gmail.com" target="_blank"><img src="assets/img/email-icon.svg">E-mail</a>
+                </div>
+                <p>jhonata.demuner@gmail.com</p>
             </div>
-            <div id="emailContainer">
-                <p>Me mande uma mensagem:</p>
-                <input type="text" placeholder="Seu e-mail">
-                <input type="text" placeholder="Mensagem">
-                <button>Enviar</button>
+            <div class="verticalSeparator"></div>
+            <div id="subscribeArea">
+                <h1>Fique por dentro</h1>
+                <form action="https://formspree.io/f/xrgvbjop" method="POST" >
+                    <input type="email" name="email" id="emailInput" placeholder="E-mail" required>
+                    <button type="submit" id="submitButton"><img src="assets/img/send-icon.svg"></button>
+                </form>
+                <p>Se inscreva para ser avisado dos meus novos projetos</p>
             </div>
+           
         </div>
     </footer>
 

@@ -11,7 +11,6 @@ function globalFunction() {
 
 
     const root = document.querySelector(':root');
-    const arrayContainer = document.querySelectorAll('.arrayContainer');
     const codeContainer = document.querySelectorAll('.codeContainer');
     const scrollArrow = document.querySelector('#scrollArrow img');
 
@@ -424,13 +423,14 @@ function globalFunction() {
             root.style.setProperty('--primary-color', '#e6ebf0');
             root.style.setProperty('--secondary-color', '#ebeff2');
             root.style.setProperty('--text-color', '#242424');
-            root.style.setProperty('--text-color-2', '#000');
+            root.style.setProperty('--text-color-2', '#373E4E');
             root.style.setProperty('--button-color', '#3d8cdb');
             root.style.setProperty('--element-color-1', '#1A31B1');
             root.style.setProperty('--element-color-2', '#6644B7');
             root.style.setProperty('--element-color-3', '#422189');
-            root.style.setProperty('--shadow-color', '#adadad');
-            arrayContainer.forEach(i => i.style.border = '2px solid var(--bg-color)');
+            root.style.setProperty('--shadow-color', '#D5D9DD');
+            root.style.setProperty('--contacts-svg-filter', 'invert(23%) sepia(28%) saturate(402%) hue-rotate(183deg) brightness(90%) contrast(93%)');
+            root.style.setProperty('--contacts-svg-filter-2', 'invert(90%) sepia(3%) saturate(1117%) hue-rotate(192deg) brightness(109%) contrast(88%)');
             codeContainer.forEach(i => i.style.border = '2px solid var(--bg-color)');
             scrollArrow.style.filter = "invert(90%) sepia(6%) saturate(181%) hue-rotate(187deg) brightness(108%) contrast(92%)";
             themeButton.style = "transform: translateX(30px);";
@@ -450,7 +450,8 @@ function globalFunction() {
             root.style.setProperty('--element-color-2', '#9971f7');
             root.style.setProperty('--element-color-3', '#6b1bcc');
             root.style.setProperty('--shadow-color', '#07090d');
-            arrayContainer.forEach(i => i.style.border = 'none');
+            root.style.setProperty('--contacts-svg-filter', 'brightness(0) saturate(100%) invert(30%) sepia(6%) saturate(1990%) hue-rotate(181deg) brightness(96%) contrast(95%)');
+            root.style.setProperty('--contacts-svg-filter-2', 'brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(774%) hue-rotate(175deg) brightness(100%) contrast(97%)');
             codeContainer.forEach(i => i.style.border = 'none');
             scrollArrow.style.filter = "invert(14%) sepia(32%) saturate(392%) hue-rotate(172deg) brightness(90%) contrast(85%)";
             themeButton.style = "transform: translateX(0px);";
