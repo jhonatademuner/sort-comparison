@@ -10,19 +10,35 @@ function globalFunction() {
 
 
 
+
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    
     const root = document.querySelector(':root');
     const codeContainer = document.querySelectorAll('.codeContainer');
     const scrollArrow = document.querySelector('#scrollArrow img');
-
+    
     const leftArray = document.querySelector('#leftArray');
     const rightArray = document.querySelector('#rightArray');
     let leftArrayContent = [];
     let rightArrayContent = [];
-    
+
+    const getArrayContainerWidth = () => {
+        const arrayContainerWidth = (windowWidth / 100) * 33.85;
+        const arrayWidth = (arrayContainerWidth / 100) * 92.3;
+        return arrayWidth;
+    }
+
+    const getArrayContainerHeight = () => {
+        const arrayContainerHeight = windowHeight;
+        const arrayHeight = (arrayContainerHeight / 100) * 64.81;
+        return arrayHeight;
+    }
+
     const themeSwitch = document.querySelector('#themeSwitch');
     const themeButton = document.querySelector('#themeButton');
     const themeButtonIcon = document.querySelector('#themeButton img');
-
+    
     const lengthChoose = document.querySelector('.lengthChoose');
     const lengthInput = document.querySelector('#lengthInput');
     const createArrayButton = document.querySelector('.createArrayButton');
@@ -50,8 +66,6 @@ function globalFunction() {
     
     const sortInputs = document.querySelectorAll('#sorting-section input');
     const sortButtons = document.querySelectorAll('#sorting-section button');
-
-
 
     //# =============================================================================================== #\\
     //# ====================================| PAGE-LOAD PROCESSES |==================================== #\\
@@ -138,8 +152,8 @@ function globalFunction() {
         leftArray.innerHTML = '';
         rightArray.innerHTML = '';
 
-        const arrayElementWidthDivisor = 600 / arrayLength;
-        const arrayElementHeightDivisor = 700 / arrayLength;
+        const arrayElementWidthDivisor = getArrayContainerWidth() / arrayLength;
+        const arrayElementHeightDivisor = getArrayContainerHeight() / arrayLength;
 
         const arrayElementsGap = `${getArrayElementsGap(arrayLength)}px`;
 
@@ -165,8 +179,8 @@ function globalFunction() {
     function displayArray(array, arraySide, colors = []) {
         const arrayLength = Number(array.length);
 
-        const arrayElementWidthDivisor = 600 / arrayLength;
-        const arrayElementHeightDivisor = 700 / arrayLength;
+        const arrayElementWidthDivisor = getArrayContainerWidth() / arrayLength;
+        const arrayElementHeightDivisor = getArrayContainerHeight() / arrayLength;
 
         const arrayElementsGap = `${getArrayElementsGap(arrayLength)}px`;
 
@@ -433,8 +447,12 @@ function globalFunction() {
             root.style.setProperty('--contacts-svg-filter-2', 'invert(90%) sepia(3%) saturate(1117%) hue-rotate(192deg) brightness(109%) contrast(88%)');
             codeContainer.forEach(i => i.style.border = '2px solid var(--bg-color)');
             scrollArrow.style.filter = "invert(90%) sepia(6%) saturate(181%) hue-rotate(187deg) brightness(108%) contrast(92%)";
-            themeButton.style = "transform: translateX(30px);";
-            themeButton.style = "-webkit-transform: translateX(30px);";
+            if (windowWidth >= 1920){
+                themeButton.style = "transform: translateX(30px);";
+                themeButton.style = "-webkit-transform: translateX(30px);";
+            } else {
+                themeSwitch.style.setProperty('justify-content', 'flex-end');
+            }
             themeButtonIcon.setAttribute('src', 'assets/img/outlined-sun-icon.svg');
             sortButton.style = "color: var(--bg-color);";
         } else if (themeButton.classList.contains('lightTheme')) {
@@ -454,8 +472,12 @@ function globalFunction() {
             root.style.setProperty('--contacts-svg-filter-2', 'brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(774%) hue-rotate(175deg) brightness(100%) contrast(97%)');
             codeContainer.forEach(i => i.style.border = 'none');
             scrollArrow.style.filter = "invert(14%) sepia(32%) saturate(392%) hue-rotate(172deg) brightness(90%) contrast(85%)";
-            themeButton.style = "transform: translateX(0px);";
-            themeButton.style = "-webkit-transform: translateX(0px);";
+            if (windowWidth >= 1920) {
+                themeButton.style = "transform: translateX(0px);";
+                themeButton.style = "-webkit-transform: translateX(0px);";
+            } else {
+                themeSwitch.style.setProperty('justify-content', 'flex-start');
+            }
             themeButtonIcon.setAttribute('src', 'assets/img/outlined-moon-icon.svg');
             sortButton.style = "color: var(--bg-color);";
         }
@@ -499,19 +521,15 @@ function globalFunction() {
     lengthInput.addEventListener('keypress', function (e) {
         if (e.keyCode == '13') {
             if (lengthInput.value === '') {
-                console.log('empty')
                 lengthChoose.value = Number(lengthInputPastValue);
                 lengthInput.value = `${lengthInputPastValue}`;
             } else if (Number(lengthInput.value) > 200) {
-                console.log('too big')
                 lengthChoose.value = 200;
                 lengthInput.value = '200';
             } else if (Number(lengthInput.value) < 2) {
-                console.log('too small')
                 lengthChoose.value = 2;
                 lengthInput.value = '2';
             } else {
-                console.log('normal')
                 lengthChoose.setAttribute('value', `${lengthInput.value}`);
             }
             leftArrayContent = createNewArray();
@@ -712,6 +730,10 @@ function globalFunction() {
             infoContentQuick.style = "display: flex;";
         }
     })
+
+    window.addEventListener('resize', function () {
+        createNewArray();
+    });
 
 }
 globalFunction();

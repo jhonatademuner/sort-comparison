@@ -12,7 +12,6 @@
     --shadow-color: #07090d;
     --contacts-svg-filter: brightness(0) saturate(100%) invert(30%) sepia(6%) saturate(1990%) hue-rotate(181deg) brightness(96%) contrast(95%);
     --contacts-svg-filter-2: brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(774%) hue-rotate(175deg) brightness(100%) contrast(97%);
-
 }
 
 * {
@@ -116,8 +115,10 @@ button{
 #leftArrayAlgorithmChoose, #rightArrayAlgorithmChoose{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
     width: 150px;
+    height: 100%;
     transition: linear 0.2s;
 }
 
@@ -613,4 +614,131 @@ footer{
     width: 2px;
     height: 180px;
     background-color: var(--bg-color);
+}
+
+@media screen and (max-width: 1919px) {
+
+    #settingsArea{
+        width: 31.25%;
+    }
+
+    #settingsContainer{
+        gap: 5.6%;
+        height: 49.53%;
+        width: 50%;
+    }
+
+    #leftArrayContainer{
+        width: 33.85%;
+    }
+
+    #rightArrayContainer{
+        width: 33.85%;
+    }
+
+    #leftArray{
+        height: 64.81%;
+        width: 92.3%;
+    }
+    
+    #rightArray{
+        height: 64.81%;
+        width: 92.3%;
+    }
+
+    #leftArrayAlgorithmChoose, #rightArrayAlgorithmChoose{
+        width: 25%;
+        gap: 10px;
+    }
+
+    #leftArrayAlgorithmChoose button, #rightArrayAlgorithmChoose button{
+        width: 80%;
+        height: 5.55%;
+        font-size: 13px;
+    }
+    
+    #sortButton{
+        width: 40%;
+        height: 9.34%;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    #leftArrayAlgorithmChoose button{
+        padding-left: 10%;
+        border-radius: 15px 0 0 15px;
+    }
+    
+    #rightArrayAlgorithmChoose button{
+        padding-right: 10%;
+        border-radius: 0 15px 15px 0;
+    }
+    
+    #lengthChooseContainer{
+        border-radius: 20px;
+        width: 80%;
+    }
+
+    
+    #lengthChooseContainer h2, #timeMultiplierContainer h2{
+        border-radius: 15px 15px 0 0;
+        font-size: 14px;
+    }
+
+    .lengthChoose{
+        height: 25px;
+        width: 91.66%;
+        margin-top: 5px;
+    }
+    
+    .createArrayButton{
+        width: 80%;
+        height: 35%;
+        font-size: 14px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    
+    #lengthInput{
+        width: 45px;
+        font-size: 16px;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    #timeMultiplierContainer{
+        border-radius: 15px;
+        width: 80%;
+    }
+
+    #timeMultiplierContainer button{
+        height: 35px;
+        width: 25%;
+        font-size: 14px;
+    }
+    
+    #timeMultiplierContainer div button:nth-child(1){
+        border-radius: 0 0 0 15px;
+    }
+    
+    #timeMultiplierContainer button:nth-last-child(1){
+        border-radius: 0 0 15px 0;
+    }
+    
+    #leftArrayAlgorithmChoose .selectedAlgorithm, #rightArrayAlgorithmChoose .selectedAlgorithm{
+        width: 100%;
+        padding: 0;
+    }
+    
+    #themeSwitch{
+        height: 5.60%;
+        width: 20%;
+        border-radius: 15px;
+    }
+    
+    #themeButton{
+        width: 50%;
+        height: 100%;
+    }
+    
 }
