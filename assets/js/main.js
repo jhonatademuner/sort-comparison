@@ -732,7 +732,8 @@ function globalFunction() {
     })
 
     window.addEventListener('resize', function () {
-        createNewArray();
+        displayArray(leftArrayContent, leftArray);
+        displayArray(rightArrayContent, rightArray);
     });
 
 }
